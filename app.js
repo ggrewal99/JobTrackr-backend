@@ -6,18 +6,6 @@ const port = 3000;
 const path = require("path");
 require("dotenv").config();
 
-const allowedOrigins = ["https://classy-sprite-51e8f3.netlify.app/"];
-
-const corsOptions = {
-    origin: function (origin, callback) {
-        if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-            callback(null, true);
-        } else {
-            callback(new Error("Not allowed by CORS"));
-        }
-    },
-};
-
 // connect to DB
 const connectDB = require("./db/connect");
 const authenticateUser = require("./middleware/authentication");
@@ -31,7 +19,7 @@ const notFoundMiddleware = require("./middleware/not-found");
 const errorHandlerMiddleware = require("./middleware/error-handler");
 
 app.use(express.json());
-app.use(cors(corsOptions));
+app.use(cors());
 
 //routes
 app.use(express.static(path.join(__dirname, "../JobTrackr")));
