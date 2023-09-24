@@ -33,7 +33,13 @@ const login = async (req, res) => {
     res.status(StatusCodes.OK).json({ user: { name: user.name }, token });
 };
 
+const logout = async (req, res) => {
+    // Token is removed from localstorage at client side
+    res.status(StatusCodes.OK).send("Logout successful!");
+};
+
 module.exports = {
     signup,
     login,
+    logout,
 };

@@ -6,11 +6,6 @@ const port = 3000;
 const path = require("path");
 require("dotenv").config();
 
-const corsOptions = {
-    origin: "http://yourfrontenddomain.com", // Replace with your frontend's domain
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"], // Specify the allowed HTTP methods
-};
-
 // connect to DB
 const connectDB = require("./db/connect");
 const authenticateUser = require("./middleware/authentication");
